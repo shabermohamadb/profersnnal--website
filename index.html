@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Al Ameen Rolling Shutter Manufacturing — premium rolling shutters, gate motors and automation." />
+    <title>Al Ameen Rolling Shutter Manufacturing</title>
+    <link rel="icon" href="/favicon.ico" />
+    <!-- Premium fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-black text-white">
+    <div id="root"></div>
+    <script>
+      // Simple runtime error overlay to surface client errors during dev
+      (function(){
+        function show(err){
+          try{
+            const existing = document.getElementById('dev-error-overlay'); if(existing) existing.remove();
+            const o = document.createElement('div'); o.id='dev-error-overlay';
+            o.style.position='fixed'; o.style.left=0; o.style.right=0; o.style.top=0; o.style.bottom=0; o.style.background='rgba(0,0,0,0.85)'; o.style.color='#fff'; o.style.zIndex=999999; o.style.padding='24px'; o.style.overflow='auto';
+            const h = document.createElement('pre'); h.style.whiteSpace='pre-wrap'; h.style.fontSize='13px'; h.textContent = typeof err === 'string' ? err : (err && err.stack) || JSON.stringify(err, null, 2);
+            const btn = document.createElement('button'); btn.textContent='Dismiss overlay'; btn.style.position='fixed'; btn.style.right='18px'; btn.style.top='18px'; btn.onclick=()=>o.remove();
+            o.appendChild(btn); o.appendChild(h); document.body.appendChild(o);
+          }catch(e){ console.error('overlay error', e) }
+        }
+        window.addEventListener('error', function(e){ show(e.message + '\n' + (e.filename||'') + ':' + (e.lineno||'')); });
+        window.addEventListener('unhandledrejection', function(e){ show('Unhandled Rejection: ' + (e.reason && e.reason.stack? e.reason.stack : String(e.reason))); });
+      })();
+    </script>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
